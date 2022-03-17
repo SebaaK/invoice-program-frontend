@@ -4,8 +4,22 @@ const axiosConfig = () => {
 
 }
 
+export const authorize = (googleData) => {
+    return apiCall.post(
+        "/auth",
+        {
+            tokenId: googleData.tokenId
+        },
+        {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    )
+};
+
 export const apiCall = axios.create({
-    baseURL: "http://localhost:8080/api/"
+    baseURL: "http://localhost:8080/api"
 });
 
 export default axiosConfig;
