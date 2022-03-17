@@ -21,7 +21,7 @@ const Home = () => {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="lg">
             <CssBaseline/>
             <Box
                 sx={{
