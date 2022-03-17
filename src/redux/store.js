@@ -1,10 +1,15 @@
 import {createStore} from "redux";
+import {countries} from "./countries.js";
+
+export const getCountriesList = state => state.countries;
 
 const reducer = (state, action) => {
     return state;
 };
 
-const initialState = {};
+const initialState = {
+    countries: [...countries]
+};
 
 const store = createStore(
     reducer,

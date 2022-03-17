@@ -2,17 +2,21 @@ import {Box, Container, CssBaseline, Grid, Link, TextField, Typography} from "@m
 import {LoadingButton} from '@mui/lab';
 import {useState} from "react";
 import {apiCall} from "../../config/axiosConfig";
+import {Link as LinkRouter} from "react-router-dom";
 
 const Home = () => {
 
     const [taxId, setTaxId] = useState('');
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const handleEvent = e => {
         e.preventDefault();
+        setError(false);
         setLoading(true);
         apiCall.get("business/taxNumber/" + taxId)
-            .then((response) => console.log(response));
+            .then((response) => console.log(response.data))
+            .catch(() => setError(true));
         setLoading(false);
     }
 
@@ -32,13 +36,14 @@ const Home = () => {
                 </Typography>
                 <Box component="form" noValidate sx={{mt: 1}} onSubmit={handleEvent}>
                     <TextField
-                        sx={{ color: '#fff !important'}}
                         type="number"
                         color="primary"
                         margin="normal"
                         required
                         fullWidth
                         id="taxId"
+                        disabled={loading}
+                        error={error}
                         label="NIP firmy"
                         name="taxId"
                         focused
@@ -55,9 +60,11 @@ const Home = () => {
                     </LoadingButton>
                     <Grid container justifyContent="center">
                         <Grid item>
-                            <Link href="#" variant="body2">
-                                Nie masz swojego konta? Stwórz je!
-                            </Link>
+                            <LinkRouter to="/register">
+                                <Link to="/register" variant="body2">
+                                    Nie masz swojego konta? Stwórz je!
+                                </Link>
+                            </LinkRouter>
                         </Grid>
                     </Grid>
                 </Box>
