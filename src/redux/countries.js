@@ -5,7 +5,7 @@ export const countries = [
         label: 'United Arab Emirates',
         phone: '971',
     },
-    { code: 'AF', label: 'Afghanistan', phone: '93' },
+    {id: 521, code: 'AF', label: 'Afghanistan', phone: '93' },
     {
         code: 'AG',
         label: 'Antigua and Barbuda',

@@ -3,17 +3,8 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import SaveIcon from '@mui/icons-material/Save';
 import CountrySelect from "../CountrySelect/CountrySelect";
 import {LoadingButton} from "@mui/lab";
-import {useEffect, useRef, useState} from "react";
 
 const Register = () => {
-
-    const [countryCode, setCountryCode] = useState('');
-
-    useEffect(() => {
-            console.log("zmiana");
-    }, [this]);
-
-    useRef(console.log("Siema"));
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -21,8 +12,7 @@ const Register = () => {
     }
 
     const setCodeCountry = (code) => {
-        setCountryCode(code);
-        console.log(countryCode);
+        // setCountryCode(code);
     }
 
     return (
@@ -41,9 +31,9 @@ const Register = () => {
                 </Typography>
                 <Box component="form" sx={{mt: 5}} onSubmit={handleSubmit}>
                     <Grid container spacing={1}>
-                        <Grid item display="flex" alignItems="center" justifyContent="center">
+                        <Grid item alignItems="center" justifyContent="center">
                             <Stack direction="row" spacing={12}>
-                                <CountrySelect codeCountry={setCodeCountry} />
+                                <CountrySelect codeCountry={setCodeCountry}/>
                                 <TextField
                                     name="taxId"
                                     label="Numer NIP"
@@ -90,12 +80,14 @@ const Register = () => {
                                 variant="outlined"
                             />
                         </Grid>
-                        <Grid item xs={12}><TextField
-                            fullWidth
-                            name="emailAddress"
-                            label="Adres E-mail"
-                            variant="outlined"
-                        /></Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                name="emailAddress"
+                                label="Adres E-mail"
+                                variant="outlined"
+                            />
+                        </Grid>
                         <Grid item xs={12} display="flex" justifyContent="center">
                             <Stack direction="row" spacing={2}>
                                 <Button

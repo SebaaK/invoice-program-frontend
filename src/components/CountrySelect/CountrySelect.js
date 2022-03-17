@@ -8,6 +8,9 @@ const CountrySelect = props => {
 
     return (
         <Autocomplete
+            onChange={(event, value) => {
+                console.log(value);
+            }}
             getOptionLabel={(option) => {
                 props.codeCountry(option.code);
                 return option.label;
