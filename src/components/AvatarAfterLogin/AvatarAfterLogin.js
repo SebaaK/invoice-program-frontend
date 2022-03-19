@@ -1,10 +1,13 @@
 import {Avatar, IconButton, Tooltip} from "@mui/material";
+import {useAuth} from "../AuthProvider/AuthProvider";
 
-const AvatarAfterLogin = ({ loginData, setLoginData }) => {
+const AvatarAfterLogin = () => {
+
+    const auth = useAuth();
+    const loginData = auth.googleData;
 
     const logoutHandler = () => {
-        localStorage.removeItem(process.env.DATA_NAME_AFTER_LOGIN_GOOGLE);
-        setLoginData(null);
+        auth.logout();
     }
 
     return (

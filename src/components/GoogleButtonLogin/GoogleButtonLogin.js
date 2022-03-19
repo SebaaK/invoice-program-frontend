@@ -1,12 +1,12 @@
 import GoogleLogin from "react-google-login";
-import {authorize} from "../../config/axiosConfig";
+import {useAuth} from "../AuthProvider/AuthProvider";
 
-const GoogleButtonLogin = ({ setLoginData }) => {
+const GoogleButtonLogin = () => {
+
+    const auth = useAuth();
 
     const handleLogin = async (data) => {
-        const responseData = (await authorize(data)).data;
-        setLoginData(responseData)
-        localStorage.setItem(process.env.DATA_NAME_AFTER_LOGIN_GOOGLE, JSON.stringify(responseData));
+        await auth.login(data);
     };
 
     return (

@@ -1,21 +1,18 @@
 import {Box} from "@mui/material";
-import {useState} from "react";
 import AvatarAfterLogin from "../AvatarAfterLogin/AvatarAfterLogin";
 import GoogleButtonLogin from "../GoogleButtonLogin/GoogleButtonLogin";
+import {useAuth} from "../AuthProvider/AuthProvider";
 
 const LoginNavComponent = () => {
-    const [loginData, setLoginData] = useState(
-        localStorage.getItem(process.env.DATA_NAME_AFTER_LOGIN_GOOGLE)
-            ? JSON.parse(localStorage.getItem(process.env.DATA_NAME_AFTER_LOGIN_GOOGLE))
-            : null
-    );
+
+    const auth = useAuth();
 
     return (
         <Box sx={{ flexGrow: 0 }}>
             {
-                loginData
-                ? <AvatarAfterLogin loginData={loginData} setLoginData={setLoginData}/>
-                : <GoogleButtonLogin setLoginData={setLoginData}/>
+                auth.googleData
+                ? <AvatarAfterLogin />
+                : <GoogleButtonLogin />
             }
         </Box>
     );
