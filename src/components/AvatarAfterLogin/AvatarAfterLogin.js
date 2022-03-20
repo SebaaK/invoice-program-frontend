@@ -13,7 +13,7 @@ const AvatarAfterLogin = () => {
     return (
         <Tooltip title="Kliknij, by wylogować!">
             <IconButton sx={{p: 0}} onClick={logoutHandler}>
-                <Avatar alt={`${loginData.givenName} ${loginData.familyName}`} src={loginData.picture}/>
+                <Avatar alt={loginData.name} src={loginData.picture}/>
             </IconButton>
         </Tooltip>
     );

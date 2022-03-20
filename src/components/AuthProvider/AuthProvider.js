@@ -17,7 +17,7 @@ export const AuthProvider = ({children}) => {
         const responseGoogleData = (await authorize(data)).data;
         setGoogleData(responseGoogleData);
         localStorage.setItem(process.env.DATA_NAME_AFTER_LOGIN_GOOGLE, JSON.stringify(responseGoogleData));
-        navigator('/zalogowano');
+        navigator('/panel', { replace: true});
     };
 
     const handleLogout = () => {

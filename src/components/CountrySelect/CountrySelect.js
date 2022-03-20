@@ -8,13 +8,14 @@ const CountrySelect = props => {
 
     return (
         <Autocomplete
+            id="country"
+            name="country"
             onChange={(event, value) => {
-                console.log(value);
+                props.setFieldValue(
+                    "country", value !== null ? value.label : ''
+                );
             }}
-            getOptionLabel={(option) => {
-                props.codeCountry(option.code);
-                return option.label;
-            }}
+            getOptionLabel={(option) => option.label}
             sx={{ width: 300}}
             autoHighlight
             options={countries}

@@ -4,6 +4,8 @@ import NavBar from "./components/NavBar/NavBar";
 import Register from "./components/Register/Register";
 import NotFound from "./components/NotFound/NotFound";
 import {AuthProvider} from "./components/AuthProvider/AuthProvider";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
+import Panel from "./components/panel/Panel";
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
         <NavBar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/register" element={<Register/>} />
+            <Route path="/businessinfo" element={<RequireAuth><Register/></RequireAuth>} />
+            <Route path="/panel" element={<RequireAuth><Panel/></RequireAuth>} />
             <Route path="*" element={<NotFound/>} />
         </Routes>
     </AuthProvider>
