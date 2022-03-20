@@ -6,6 +6,7 @@ import NotFound from "./components/NotFound/NotFound";
 import {AuthProvider} from "./components/AuthProvider/AuthProvider";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Panel from "./components/panel/Panel";
+import InvoiceView from "./components/InvoiceView/InvoiceView";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/businessinfo" element={<RequireAuth><Register/></RequireAuth>} />
             <Route path="/panel" element={<RequireAuth><Panel/></RequireAuth>} />
+            <Route path="/fakutra/nowa" element={<RequireAuth><InvoiceView/></RequireAuth>} />
             <Route path="*" element={<NotFound/>} />
         </Routes>
     </AuthProvider>
