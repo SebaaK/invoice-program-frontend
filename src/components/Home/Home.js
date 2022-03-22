@@ -1,8 +1,6 @@
-import {Box, Container, CssBaseline, Grid, Link, TextField, Typography} from "@mui/material";
-import {LoadingButton} from '@mui/lab';
+import {Box, Container, CssBaseline, Typography} from "@mui/material";
 import {useState} from "react";
 import {apiCall} from "../../config/axiosConfig";
-import {Link as LinkRouter} from "react-router-dom";
 
 const Home = () => {
 
@@ -31,43 +29,10 @@ const Home = () => {
                     alignItems: 'center',
                 }}
             >
-                <Typography component="h1" variant="h5">
-                    Zaloguj się
+                <Typography variant="h2" sx={{mb: 5}}>
+                    Program fakturowy!
                 </Typography>
-                <Box component="form" noValidate sx={{mt: 1}} onSubmit={handleEvent}>
-                    <TextField
-                        type="number"
-                        color="primary"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="taxId"
-                        disabled={loading}
-                        error={error}
-                        label="NIP firmy"
-                        name="taxId"
-                        focused
-                        onChange={event => setTaxId(event.target.value)}
-                    />
-                    <LoadingButton
-                        type="submit"
-                        loading={loading}
-                        fullWidth
-                        variant="contained"
-                        sx={{mt: 3, mb: 2}}
-                    >
-                        Zaloguj!
-                    </LoadingButton>
-                    <Grid container justifyContent="center">
-                        <Grid item>
-                            <LinkRouter to="/register">
-                                <Link to="/register" variant="body2">
-                                    Nie masz swojego konta? Stwórz je!
-                                </Link>
-                            </LinkRouter>
-                        </Grid>
-                    </Grid>
-                </Box>
+            <img src={`${process.env.PUBLIC_URL}/image.svg`} alt="Pic" />
             </Box>
         </Container>
     );
